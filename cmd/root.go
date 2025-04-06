@@ -109,7 +109,7 @@ var rootCmd = &cobra.Command{
 				return
 			}
 			defer f.Close()
-			if err := gtree.OutputProgrammably(f, root); err != nil {
+			if err := gtree.OutputFromRoot(f, root); err != nil {
 				log.Fatalf("failed to output tree: %v", err)
 				return
 			}
@@ -117,7 +117,7 @@ var rootCmd = &cobra.Command{
 				fmt.Fprintf(f, "\n%d directories, %d files\n", dirCount, fileCount)
 			}
 		} else {
-			if err := gtree.OutputProgrammably(os.Stdout, root); err != nil {
+			if err := gtree.OutputFromRoot(os.Stdout, root); err != nil {
 				log.Fatalf("failed to output tree: %v", err)
 				return
 			}
